@@ -67,7 +67,7 @@
 
 (coneVolume 3.2 1.8)
 
-;The following function will explore recursion in scheme.
+;#############The Following Function will explore RECURSION in scheme. ##########
 
 ;Function of r counting Positive Even numbers.. The function will only receive one parameter.
 ;The parameter is a simple list(i.e a list containing only atoms).
@@ -81,3 +81,17 @@
 )
 
 (display (countPositiveEvenNumbers '(1 2 3 4 5 6))) ; Expected output: 3
+
+;Function for counting Negatives numbers. The function will only receive one parameter.
+;The parameter is a simple list(i.e a list containing only atoms excluding zero).
+
+(define (countNegatives list)
+    (cond
+        ((null? list) 0)
+        ((< (car list) 0) (+ 1 (countNegatives(cdr list))))
+        (else (countNegatives (cdr list)))
+    ) 
+)
+
+(display (countNegatives ’(-1 20 -30 2 -5 40 10 -60))) ; Expected output: 4
+(display (countNegatives ’(1 2 3 4 5))) ; Expected output: 0
