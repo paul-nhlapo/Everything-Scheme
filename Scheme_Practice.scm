@@ -66,3 +66,18 @@
 )
 
 (coneVolume 3.2 1.8)
+
+;The following function will explore recursion in scheme.
+
+;Function of r counting Positive Even numbers.. The function will only receive one parameter.
+;The parameter is a simple list(i.e a list containing only atoms).
+
+(define (countPositiveEvenNumbers list)
+    (cond
+        ((null? list) 0)
+        ((and (> (car list) 0) (even? (car list))) (+ 1 (countPositiveEvenNumbers (cdr list))))
+        (else (countPositiveEvenNumbers (cdr list)))
+    )
+)
+
+(display (countPositiveEvenNumbers '(1 2 3 4 5 6))) ; Expected output: 3
