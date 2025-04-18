@@ -114,3 +114,16 @@
 )
 
 (display (getEveryOddElement '(1 2 3 4 5))) ; Expected output: (1 3 5)
+
+
+;Function to get every Even element in a list.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+(define (getEveryEvenElement list)
+    (cond 
+    ((null? list) '())                             
+    ((null? (cdr list)) '())                       
+    (else (cons (car (cdr list)) (getEveryEvenElement (cdr (cdr list)))))
+    )
+)
+
+(display (getEveryEvenElement '(1 2 3 4 5))) ; Expected output: (2 4)
