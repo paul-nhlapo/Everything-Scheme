@@ -95,3 +95,22 @@
 
 (display (countNegatives ’(-1 20 -30 2 -5 40 10 -60))) ; Expected output: 4
 (display (countNegatives ’(1 2 3 4 5))) ; Expected output: 0
+
+;Function to count every Odd element in a list.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+
+(define (getEveryOddElement list) ; get the element at every odd index
+
+    (cond 
+
+        ((null? list) '())
+
+        ((null? (cdr list)) (cons (car list) (cdr list)))
+
+        (else (cons (car list) (getEveryOddElement (cdr (cdr list)))))
+        
+
+    )
+)
+
+(display (getEveryOddElement '(1 2 3 4 5))) ; Expected output: (1 3 5)
