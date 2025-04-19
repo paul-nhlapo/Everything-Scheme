@@ -127,3 +127,22 @@
 )
 
 (display (getEveryEvenElement '(1 2 3 4 5))) ; Expected output: (2 4)
+
+
+;The following function will return the last element of a list.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+(define (last array)
+
+    (cond
+
+        ((null? array) '())
+
+        ((null? (cdr array)) (car array))
+
+        (else (last (cdr array)))
+    )
+)
+
+(last '(a b c d e)) ; Output: e
+(last '(1))         ; Output: 1
+(last '())          ; Output: ()
