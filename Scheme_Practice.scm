@@ -146,3 +146,18 @@
 (last '(a b c d e)) ; Output: e
 (last '(1))         ; Output: 1
 (last '())          ; Output: ()
+
+; Implement a Scheme function named sumBetween that is applied to two
+;parameters called first and second. Assume that both first and second are
+; numeric integer literals and that the value fof first is less than the value of second
+; The function should return the sum of all the integers between first and second, inclusive.
+
+(define (sumBetween first second)
+(cond
+    ((= first second) first)
+    (else (+ first (sumBetween (+ first 1) second)))
+)
+)
+
+(display (sumBetween 1 5)) ; Expected output: 15 (1 + 2 + 3 + 4 + 5)
+(display (sumBetween 3 7)) ; Expected output: 25 (3 + 4 + 5 + 6 + 7)
