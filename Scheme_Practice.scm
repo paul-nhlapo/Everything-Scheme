@@ -178,3 +178,18 @@
 
 (display (addElements '())) ; Expected output: 0
 (display (addElements '(1))) ; Expected output: 1
+
+
+;Function that calculates the total number of negative Odd numbers in a list.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+;The function should return the total number of negative Odd numbers in the list.
+
+(define (totalEveryNegativeOddElement list)
+    (cond
+        ((null? list) 0)
+        ()
+    )
+)
+
+(display (totalEveryNegativeOddElement '(1 2 3 -4 -5))) ; Expected output: 1 (-5)
+(display (totalEveryNegativeOddElement '(1 2 3 -4 -5 -6))) ; Expected output: 2 (-5 -3)
