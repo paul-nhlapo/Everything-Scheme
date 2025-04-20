@@ -147,7 +147,7 @@
 (last '(1))         ; Output: 1
 (last '())          ; Output: ()
 
-; Implement a Scheme function named sumBetween that is applied to two
+;Function named sumBetween that is applied to two
 ;parameters called first and second. Assume that both first and second are
 ; numeric integer literals and that the value fof first is less than the value of second
 ; The function should return the sum of all the integers between first and second, inclusive.
@@ -161,3 +161,20 @@
 
 (display (sumBetween 1 5)) ; Expected output: 15 (1 + 2 + 3 + 4 + 5)
 (display (sumBetween 3 7)) ; Expected output: 25 (3 + 4 + 5 + 6 + 7)
+
+
+;Function that add all the numeral elements in a list.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+
+(define (addElements lis)
+    (cond
+        ((null? lis) 0)
+        (else (+ (car lis) (addElements(cdr lis))))
+    )
+)
+
+(display (addElements '(1 2 3))) ; Expected output: 6
+(display (addElements '(1 2 3 4 5))) ; Expected output: 15
+
+(display (addElements '())) ; Expected output: 0
+(display (addElements '(1))) ; Expected output: 1
