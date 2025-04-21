@@ -193,3 +193,26 @@
 
 (display (totalEveryNegativeOddElement '(1 2 3 -4 -5))) ; Expected output: 1 (-5)
 (display (totalEveryNegativeOddElement '(1 2 3 -4 -5 -6))) ; Expected output: 2 (-5 -3)
+
+;Let's try to do it in a very different way same function but different
+
+(define (totalEveryNegativeOddElementHelper lis counter)
+(cond
+    ((null? lis) 0)
+    ((not (= (modulo counter 2) 0))
+        (cond
+             ((< (car lis) 0) (+ (car lis) (totalEveryNegativeOddElementHelper (cdr lis) (+ counter 1))) )
+             (else (totalEveryNegativeOddElementHelper (cdr lis) (+ counter 1)))
+        )
+    )
+     (else (totalEveryNegativeOddElementHelper (cdr lis) (+ counter 1)))
+)
+)
+
+(define (totalEveryNegativeOddElement lis)
+    (display "Total sum of negative atoms: ")
+    (display (totalEveryNegativeOddElementHelper lis 1)) ; "initializing" counter to 1 before calling recursive function
+    (newline)
+)
+(totalEveryNegativeOddElement '(5 6 -7 8 -9 4))
+
