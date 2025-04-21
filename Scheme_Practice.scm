@@ -216,3 +216,17 @@
 )
 (totalEveryNegativeOddElement '(5 6 -7 8 -9 4))
 
+;Now a Function that gets all the positive Even numbers in a list.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+
+(define (getPositiveEvenValues list)
+(cond
+    ((null? list) '())
+    ((and (> (car list) 0) (even? (car list))) ( cons (car list) (getPositiveEvenValues(cdr list))))
+    (else (getPositiveEvenValues(cdr list)))
+)
+)
+
+(display (getPositiveEvenValues '(2 -2 4 6 5 0 5 -9 10 12))); ; Expected output: (2 4 6 10 12)
+(display (getPositiveEvenValues '(1 3 5 -7 -9))); ; Expected output: ()
+(display (getPositiveEvenValues '())); ; Expected output: ()
