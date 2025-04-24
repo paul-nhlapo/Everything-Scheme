@@ -243,3 +243,17 @@
 )
 
 (display (addPositiveEvenValues '(1 2 3 4 5 6 -8 -2)))
+
+;Function to add all Positive Odd values in a list.
+;Return 0 is the list is empty
+
+(define (addPositiveOddValues list)
+    (cond
+        ((null? list) 0)
+        ((and (< (car list) 0) (even? (car list))) (+ (car list) (addPositiveOddValues(cdr list))))
+        (else (addPositiveOddValues(cdr list)))
+    )
+)
+
+(display (addPositiveOddValues '(1 2 3 4 5 6 -8 -2)))
+
