@@ -272,3 +272,16 @@
 
 
 (display (stripOccurrences 'A '(B C D)))
+
+;Function that checks if a list contains repeated elements.
+;The function will only receive one parameter a simple list(i.e a list containing only atoms).
+
+(define (containsRepetition lis)
+  (cond
+    ((or (null? lis) (null? (cdr lis))) #f) ; Base case: If the list is empty or contains only one element, it can't have a repetition.
+    ((eq? (car lis) (cadr lis)) #t)        ; If the first element is equal to the second element, we found a repetition.
+    (else (containsRepetition (cdr lis)))  ; If no repetition is found yet, continue checking with the rest of the list.
+  )
+)
+
+(display (containsRepetition '(5 3 1)))
