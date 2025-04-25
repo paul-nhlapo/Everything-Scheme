@@ -257,3 +257,18 @@
 
 (display (addPositiveOddValues '(1 2 3 4 5 6 -8 -2)))
 
+;Function to Strip Occurrences of a given element from a list.
+;The function will only receive two parameters, the first parameter is a simple list(i.e a list containing only atoms) and the second parameter is an atom.
+;The function should return a list that contains all the elements of the first parameter except for the occurrences of the second parameter.
+
+
+(define (stripOccurrences atm lis)
+  (cond
+    ((null? lis) '()) ; Base case: If the list is empty, return an empty list.
+    ((eq? atm (car lis)) (stripOccurrences atm (cdr lis))) ; If the first element matches atm, skip it and continue with the rest of the list.
+    (else (cons (car lis) (stripOccurrences atm (cdr lis)))) ; If the first element is not atm, include it in the result and continue with the rest of the list.
+  )
+)
+
+
+(display (stripOccurrences 'A '(B C D)))
